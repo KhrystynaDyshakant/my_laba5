@@ -9,22 +9,23 @@ import static org.junit.jupiter.api.Assertions.*;
 class TextTest {
     @Test
     public void testRemove() {
-        Text text = new Text("Computer science", "s");
-        assertEquals("science", text.getWordsFromText());
+        TextProcessor textProcessor = new TextProcessor("Computer science", "s");
+        assertEquals("science", textProcessor.getStringOfWordsFromText());
     }
     @Test
-    public void testTextForTheReturnSecondWords(){
-        Text text=new Text("Hello word","w");
-        assertEquals("word",text.getWordsFromText());
+    public void testTextIsSameWords(){
+        TextProcessor textProcessor = new TextProcessor("hello hello","h");
+        assertEquals("hello",textProcessor.getStringOfWordsFromText());
     }
-        @Test
-        public void testGetWordsFromText() {
-            Text text = new Text("Hey everyone", "e");
-            assertEquals("everyone", text.getWordsFromText());
+    @Test
+    public void testTextIsEmpty(){
+        TextProcessor textProcessor = new TextProcessor("","s");
+        assertEquals("",textProcessor.getStringOfWordsFromText());
+    }
 
-        }
-
+    @Test
+    public void testNoNeededLettersInWords() {
+        TextProcessor textProcessor = new TextProcessor("here no words", "t");
+        assertEquals("", textProcessor.getStringOfWordsFromText());
+    }
 }
-
-
-
